@@ -44,7 +44,7 @@ class DQNAgent(object):
 
             fc1 = tf_utils.fc(self.state_input, n_output=16, activation_fn=tf.nn.relu)
             fc2 = tf_utils.fc(fc1, n_output=32, activation_fn=tf.nn.relu)
-            fc3 = tf_utils.fc(fc1, n_output=16, activation_fn=tf.nn.relu)
+            fc3 = tf_utils.fc(fc2, n_output=16, activation_fn=tf.nn.relu)
             self.q_values = tf_utils.fc(fc3, self.action_size, activation_fn=None)
             # 动作用one-hot编码
             action_mask = tf.one_hot(self.action, self.action_size, 1.0, 0.0)
